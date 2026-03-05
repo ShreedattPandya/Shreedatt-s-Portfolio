@@ -43,10 +43,6 @@ import { twMerge } from 'tailwind-merge';
 
 // --- Static Assets ---
 const LOTTIE_URL = "https://assets10.lottiefiles.com/packages/lf20_xRmNN8.json";
-const PROJECT_IMAGES: Record<string, string> = {
-  "WayTrip - Travel Agency": "/src/assets/waytrip mockup.png",
-  "CosmoNest - House Rent App": "/src/assets/cosmonest mockup.png"
-};
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -103,14 +99,14 @@ const RESUME_DATA = {
     {
       title: "WayTrip - Travel Agency",
       category: "Website Design",
-      image: "https://picsum.photos/seed/travel/800/600",
+      image: "/src/assets/waytrip mockup.png",
       description: "Responsive Travel Agency built with Bootstrap, featuring smooth hover animations and a clean, modern design.",
       link: "https://way-trip.vercel.app/"
     },
     {
       title: "CosmoNest - House Rent App",
       category: "Full Stack Web App",
-      image: "https://picsum.photos/seed/house/800/600",
+      image: "/src/assets/cosmonest mockup.png",
       description: "Implemented user authentication, real-time booking management, and an intuitive UI using MERN Stack.",
       link: "https://cosmo-nest-house-rent-app.vercel.app/"
     }
@@ -491,7 +487,7 @@ export default function App() {
                 >
                   <div className="relative aspect-video rounded-[32px] overflow-hidden mb-8 bg-brand-navy/5">
                     <img
-                      src={PROJECT_IMAGES[project.title]}
+                      src={project.image}
                       alt={project.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       referrerPolicy="no-referrer"
