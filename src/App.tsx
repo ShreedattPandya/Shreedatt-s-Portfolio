@@ -41,6 +41,9 @@ import {
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
+import waytripMockup from './assets/waytrip mockup.png';
+import cosmonestMockup from './assets/cosmonest mockup.png';
+
 // --- Static Assets ---
 const LOTTIE_URL = "https://assets10.lottiefiles.com/packages/lf20_xRmNN8.json";
 
@@ -99,14 +102,14 @@ const RESUME_DATA = {
     {
       title: "WayTrip - Travel Agency",
       category: "Website Design",
-      image: "/src/assets/waytrip mockup.png",
+      image: waytripMockup,
       description: "Responsive Travel Agency built with Bootstrap, featuring smooth hover animations and a clean, modern design.",
       link: "https://way-trip.vercel.app/"
     },
     {
       title: "CosmoNest - House Rent App",
       category: "Full Stack Web App",
-      image: "/src/assets/cosmonest mockup.png",
+      image: cosmonestMockup,
       description: "Implemented user authentication, real-time booking management, and an intuitive UI using MERN Stack.",
       link: "https://cosmo-nest-house-rent-app.vercel.app/"
     }
