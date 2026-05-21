@@ -43,6 +43,8 @@ import { twMerge } from 'tailwind-merge';
 
 import waytripMockup from './assets/waytrip mockup.png';
 import cosmonestMockup from './assets/cosmonest mockup.png';
+import gemAiMockup from './assets/AI Img Gen mockup.png';
+import hyrebridgeMockup from './assets/Hyrebridge mockup.png';
 
 // --- Static Assets ---
 const LOTTIE_URL = "https://assets10.lottiefiles.com/packages/lf20_xRmNN8.json";
@@ -112,6 +114,20 @@ const RESUME_DATA = {
       image: cosmonestMockup,
       description: "Implemented user authentication, real-time booking management, and an intuitive UI using MERN Stack.",
       link: "https://cosmo-nest-house-rent-app.vercel.app/"
+    },
+    {
+      title: "Gem AI - AI Image Generator",
+      category: "Full Stack AI Platform",
+      image: gemAiMockup,
+      description: "Built a full-stack AI image generation platform with advanced generation controls (model, prompt, resolution, steps) and a community \"Explore\" gallery backed by Cloudinary for browsing, downloading, and sharing creations.",
+      link: "https://ai-image-generator-kappa-inky.vercel.app/"
+    },
+    {
+      title: "HyreBridge - Keshav Encon",
+      category: "Frontend / Marketing Website",
+      image: hyrebridgeMockup,
+      description: "Developed a modern single-page marketing website for a recruitment platform in its initial stage, featuring responsive design, smooth animations, layered UI effects, and an engaging user experience using modern frontend development practices.",
+      link: "https://hyre-bridge-new.vercel.app/"
     }
   ],
   social: {
@@ -121,19 +137,16 @@ const RESUME_DATA = {
   services: [
     {
       title: "Frontend Development",
-      count: "12+ Projects",
       icon: Layout,
       color: "bg-brand-teal"
     },
     {
       title: "Full Stack Applications",
-      count: "8+ Projects",
       icon: Code,
       color: "bg-brand-yellow"
     },
     {
       title: "B2B Outreach | Lead Systems",
-      count: "5+ Workflows",
       icon: Smartphone,
       color: "bg-brand-orange"
     }
@@ -308,9 +321,9 @@ export default function App() {
                 </a>
 
                 <div className="flex items-center justify-center sm:justify-start gap-4 px-6 py-4 bg-white/70 backdrop-blur-xl border border-white/60 rounded-full shadow-lg shadow-brand-navy/5">
-                  <div className="text-4xl font-black text-brand-orange tracking-tighter">7<span className="text-2xl text-brand-teal">+</span></div>
+                  <div className="text-4xl font-black text-brand-orange tracking-tighter">1<span className="text-2xl text-brand-teal">yr</span></div>
                   <div className="text-[10px] uppercase tracking-[0.2em] font-bold leading-tight text-brand-navy/60">
-                    Months<br />Experience
+                    1 Month<br />Experience
                   </div>
                 </div>
               </motion.div>
@@ -408,7 +421,6 @@ export default function App() {
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold mb-1">{service.title}</h3>
-                      <p className="text-brand-navy/50 font-medium">{service.count}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -418,9 +430,10 @@ export default function App() {
             <div>
               <h2 className="text-6xl font-bold mb-8">What do I help?</h2>
               <p className="text-xl text-brand-navy/60 leading-relaxed mb-12">
-                I help companies not only build digital products but also position them in the market.
-                With experience in frontend development, CRM optimization, LinkedIn outreach campaigns,
-                and B2B cold calling, I understand both how to build systems and how to generate users for them.
+                I craft fast, accessible web interfaces and full-stack applications — turning ideas into
+                production-ready products. From pixel-perfect React UIs to robust Node.js backends,
+                I focus on clean code and real user impact. I also bridge the gap between product and
+                growth, building B2B outreach systems and lead generation workflows that drive traction.
               </p>
             </div>
           </div>
@@ -467,58 +480,150 @@ export default function App() {
         </AnimatePresence>
 
         {/* --- Works Section --- */}
-        <section id="works" className="py-32 px-6 bg-white">
+        <section id="works" className="py-32 px-6 bg-white overflow-hidden">
           <div className="max-w-7xl mx-auto">
-            <div className="flex items-end justify-between mb-16">
+
+            {/* Header */}
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
               <div>
-                <h2 className="text-5xl font-bold mb-4">My Latest Works</h2>
-                <p className="text-brand-navy/50 font-medium">Perfect solution for digital experience</p>
+                <p className="text-brand-orange font-bold uppercase tracking-[0.3em] text-xs mb-4">Portfolio</p>
+                <h2 className="text-5xl md:text-6xl font-black text-brand-navy leading-tight">
+                  My Latest<br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-teal to-brand-orange">Works</span>
+                </h2>
               </div>
-              <a href="#" className="text-brand-orange font-bold flex items-center gap-2 hover:gap-4 transition-all">
-                Explore More Works <ChevronRight size={20} />
-              </a>
+              <p className="text-brand-navy/40 max-w-xs leading-relaxed text-sm">
+                A selection of projects I've built — from full-stack apps to polished marketing sites.
+              </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12">
-              {RESUME_DATA.projects.map((project, idx) => (
-                <motion.div
-                  key={project.title}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="group cursor-pointer"
-                >
-                  <div className="relative aspect-video rounded-[32px] overflow-hidden mb-8 bg-brand-navy/5">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                      referrerPolicy="no-referrer"
-                      onError={(e) => {
-                        // Fallback for local development if image is missing
-                        (e.target as HTMLImageElement).src = `https://picsum.photos/seed/${project.title}/800/600`;
-                      }}
-                    />
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="absolute inset-0 bg-brand-navy/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
-                    >
-                      <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-brand-navy">
-                        <ArrowUpRight size={32} />
-                      </div>
-                    </a>
-                  </div>
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <p className="text-brand-orange font-bold uppercase tracking-widest text-xs mb-2">{project.category}</p>
-                      <h3 className="text-3xl font-bold mb-4">{project.title}</h3>
-                      <p className="text-brand-navy/60 max-w-md">{project.description}</p>
+            {/* Projects Grid — creative asymmetric layout */}
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+
+              {/* Card 1 — large, spans 7 cols */}
+              {RESUME_DATA.projects[0] && (() => {
+                const project = RESUME_DATA.projects[0];
+                return (
+                  <motion.a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    key={project.title}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    className="group md:col-span-7 relative rounded-[28px] overflow-hidden bg-brand-cream border border-brand-navy/8 hover:border-brand-teal/40 hover:shadow-2xl hover:shadow-brand-teal/10 transition-all duration-500 cursor-pointer"
+                  >
+                    <div className="relative aspect-[4/3] overflow-hidden">
+                      <img src={project.image!} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-brand-navy/20 to-transparent" />
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+                    <div className="absolute bottom-0 left-0 right-0 p-8">
+                      <p className="text-brand-teal font-bold uppercase tracking-widest text-[10px] mb-2">{project.category}</p>
+                      <h3 className="text-2xl font-black text-white mb-2">{project.title}</h3>
+                      <p className="text-white/60 text-sm leading-relaxed line-clamp-2">{project.description}</p>
+                      <div className="mt-4 flex items-center gap-2 text-brand-orange font-bold text-sm opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                        View Project <ArrowUpRight size={16} />
+                      </div>
+                    </div>
+                    <div className="absolute top-6 right-6 text-brand-navy/8 font-black text-7xl leading-none select-none">01</div>
+                  </motion.a>
+                );
+              })()}
+
+              {/* Card 2 — spans 5 cols */}
+              {RESUME_DATA.projects[1] && (() => {
+                const project = RESUME_DATA.projects[1];
+                return (
+                  <motion.a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    key={project.title}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+                    className="group md:col-span-5 relative rounded-[28px] overflow-hidden bg-brand-cream border border-brand-navy/8 hover:border-brand-orange/40 hover:shadow-2xl hover:shadow-brand-orange/10 transition-all duration-500 cursor-pointer"
+                  >
+                    <div className="relative h-full min-h-[320px] overflow-hidden">
+                      <img src={project.image!} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-brand-navy/30 to-transparent" />
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 p-8">
+                      <p className="text-brand-orange font-bold uppercase tracking-widest text-[10px] mb-2">{project.category}</p>
+                      <h3 className="text-2xl font-black text-white mb-2">{project.title}</h3>
+                      <p className="text-white/60 text-sm leading-relaxed line-clamp-2">{project.description}</p>
+                      <div className="mt-4 flex items-center gap-2 text-brand-teal font-bold text-sm opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                        View Project <ArrowUpRight size={16} />
+                      </div>
+                    </div>
+                    <div className="absolute top-6 right-6 text-brand-navy/8 font-black text-7xl leading-none select-none">02</div>
+                  </motion.a>
+                );
+              })()}
+
+              {/* Card 3 — spans 5 cols */}
+              {RESUME_DATA.projects[2] && (() => {
+                const project = RESUME_DATA.projects[2];
+                return (
+                  <motion.a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    key={project.title}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+                    className="group md:col-span-5 relative rounded-[28px] overflow-hidden bg-brand-cream border border-brand-navy/8 hover:border-brand-teal/40 hover:shadow-2xl hover:shadow-brand-teal/10 transition-all duration-500 cursor-pointer"
+                  >
+                    <div className="relative h-full min-h-[320px] overflow-hidden">
+                      <img src={project.image!} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-brand-navy/30 to-transparent" />
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 p-8">
+                      <p className="text-brand-teal font-bold uppercase tracking-widest text-[10px] mb-2">{project.category}</p>
+                      <h3 className="text-2xl font-black text-white mb-2">{project.title}</h3>
+                      <p className="text-white/60 text-sm leading-relaxed line-clamp-2">{project.description}</p>
+                      <div className="mt-4 flex items-center gap-2 text-brand-orange font-bold text-sm opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                        View Project <ArrowUpRight size={16} />
+                      </div>
+                    </div>
+                    <div className="absolute top-6 right-6 text-brand-navy/8 font-black text-7xl leading-none select-none">03</div>
+                  </motion.a>
+                );
+              })()}
+
+              {/* Card 4 — large, spans 7 cols */}
+              {RESUME_DATA.projects[3] && (() => {
+                const project = RESUME_DATA.projects[3];
+                return (
+                  <motion.a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    key={project.title}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                    className="group md:col-span-7 relative rounded-[28px] overflow-hidden bg-brand-cream border border-brand-navy/8 hover:border-brand-orange/40 hover:shadow-2xl hover:shadow-brand-orange/10 transition-all duration-500 cursor-pointer"
+                  >
+                    <div className="relative aspect-[4/3] overflow-hidden">
+                      <img src={project.image!} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-brand-navy/20 to-transparent" />
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 p-8">
+                      <p className="text-brand-orange font-bold uppercase tracking-widest text-[10px] mb-2">{project.category}</p>
+                      <h3 className="text-2xl font-black text-white mb-2">{project.title}</h3>
+                      <p className="text-white/60 text-sm leading-relaxed line-clamp-2">{project.description}</p>
+                      <div className="mt-4 flex items-center gap-2 text-brand-teal font-bold text-sm opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                        View Project <ArrowUpRight size={16} />
+                      </div>
+                    </div>
+                    <div className="absolute top-6 right-6 text-brand-navy/8 font-black text-7xl leading-none select-none">04</div>
+                  </motion.a>
+                );
+              })()}
+
             </div>
           </div>
         </section>
