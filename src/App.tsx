@@ -81,7 +81,7 @@ const RESUME_DATA = {
     {
       company: "Keshav Encon",
       role: "Marketing Executive",
-      period: "Aug 2025 - Present",
+      period: "Aug 2025 - Mar 2026",
       description: "Led B2B outreach and LinkedIn campaigns for an AI-driven recruiting platform, created high-converting job advertisements, and supported React frontend improvements to enhance product performance and user experience.",
       color: "bg-brand-teal"
     },
@@ -102,11 +102,11 @@ const RESUME_DATA = {
   ],
   projects: [
     {
-      title: "WayTrip - Travel Agency",
-      category: "Website Design",
-      image: waytripMockup,
-      description: "Responsive Travel Agency built with Bootstrap, featuring smooth hover animations and a clean, modern design.",
-      link: "https://way-trip.vercel.app/"
+      title: "Gem AI - AI Image Generator",
+      category: "Full Stack AI Platform",
+      image: gemAiMockup,
+      description: "Built a full-stack AI image generation platform with advanced generation controls (model, prompt, resolution, steps) and a community \"Explore\" gallery backed by Cloudinary for browsing, downloading, and sharing creations.",
+      link: "https://ai-image-generator-delta-pied.vercel.app/"
     },
     {
       title: "CosmoNest - House Rent App",
@@ -116,11 +116,11 @@ const RESUME_DATA = {
       link: "https://cosmo-nest-house-rent-app.vercel.app/"
     },
     {
-      title: "Gem AI - AI Image Generator",
-      category: "Full Stack AI Platform",
-      image: gemAiMockup,
-      description: "Built a full-stack AI image generation platform with advanced generation controls (model, prompt, resolution, steps) and a community \"Explore\" gallery backed by Cloudinary for browsing, downloading, and sharing creations.",
-      link: "https://ai-image-generator-kappa-inky.vercel.app/"
+      title: "WayTrip - Travel Agency",
+      category: "Website Design",
+      image: waytripMockup,
+      description: "Responsive Travel Agency built with Bootstrap, featuring smooth hover animations and a clean, modern design.",
+      link: "https://way-trip.vercel.app/"
     },
     {
       title: "HyreBridge - Keshav Encon",
@@ -612,7 +612,10 @@ export default function App() {
                       <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-brand-navy/20 to-transparent" />
                     </div>
                     <div className="absolute bottom-0 left-0 right-0 p-8">
-                      <p className="text-brand-orange font-bold uppercase tracking-widest text-[10px] mb-2">{project.category}</p>
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-orange/20 border border-brand-orange/30 mb-3">
+                        <span className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
+                        <span className="text-brand-orange font-bold text-[9px] uppercase tracking-widest">Under Development</span>
+                      </div>
                       <h3 className="text-2xl font-black text-white mb-2">{project.title}</h3>
                       <p className="text-white/60 text-sm leading-relaxed line-clamp-2">{project.description}</p>
                       <div className="mt-4 flex items-center gap-2 text-brand-teal font-bold text-sm opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
